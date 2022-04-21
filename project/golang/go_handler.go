@@ -63,3 +63,29 @@ func NewProjectWithPath(github, path string) error {
 
 	return nil
 }
+
+// generate main.go
+func GenerateMain() error {
+	f, err := os.Create("main.go")
+	if err != nil {
+		fmt.Println(err)
+		f.Close()
+		return err
+	}
+	defer f.Close()
+	template := `
+					package main
+
+					func main() {
+						/* code goes here */
+					}
+	`
+	_, err = f.WriteString(template)
+	if err != nil {
+		fmt.Println(err)
+		f.Close()
+		return err
+	}
+
+	return nil
+}

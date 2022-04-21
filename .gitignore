@@ -1,2 +1,6 @@
 *.exe
 /todolist.md
+notes.md
+design_notes.txt
+/scripts
+/project/python

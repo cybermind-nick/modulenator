@@ -30,6 +30,10 @@ var goCmd = &cobra.Command{
 			if err := golang.NewProject(GitHub); err != nil {
 				log.Fatal(err)
 			}
+
+			if err := golang.GenerateMain(); err != nil {
+				log.Fatal(err)
+			}
 			fmt.Println("Successfully Generated Go Project...")
 
 		} else {
@@ -38,6 +42,9 @@ var goCmd = &cobra.Command{
 			fmt.Println("\n", &Path)
 
 			if err := golang.NewProjectWithPath(GitHub, Path); err != nil {
+				log.Fatal(err)
+			}
+			if err := golang.GenerateMain(); err != nil {
 				log.Fatal(err)
 			}
 		}

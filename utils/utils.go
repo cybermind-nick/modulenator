@@ -79,7 +79,7 @@ func ListItems() (string, error) {
 func RegCheck(list string, keywords []string) (string, bool) {
 	re := regexp.MustCompile(list)
 	out := ""
-	boolean := false
+	boolean := false //default
 	for _, keyword := range keywords {
 		if isFound := re.MatchString(keyword); isFound {
 			out := fmt.Sprintf("%s exist", keyword)
